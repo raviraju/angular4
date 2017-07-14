@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Let's login into your account</h1>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm"> <!-- Declare a template variable for the form -->
+      <!--{{diagnostic}}--> <!-- to test 2 way data binding -->
+      <div class="form-group">
+        <label for="emailId">Email Id</label>
+        <input type="email" class="form-control" id="emailId" 
+         required [(ngModel)]="user.emailId" name="emailId" #name="ngModel"> 
+         <!--Defining a name attribute is a requirement when using [(ngModel)] in combination with a form. -->
+         <!--Each input element has a name property that is required by Angular forms to register the control with the form.-->
+        
+        <!--<div [hidden]="emailId.valid || emailId.pristine" class="alert alert-danger">EmailId is required</div>-->
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" 
+         required [(ngModel)]="user.password" name="password" #password="ngModel">
+         <!--<div [hidden]="password.valid || password.pristine" class="alert alert-danger">Password is required</div> -->
+      </div>
+
+      <!--<div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="phone" class="form-control" id="phone"
+         [(ngModel)]="user.phone" name="phone">
+      </div>-->
+
+      <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Login</button>
+
+    </form>
+</div>
