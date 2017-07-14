@@ -1,5 +1,6 @@
 import { Injectable }       from '@angular/core';
 import { Http, Response }   from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
 import { User }             from '../user';
 
 import 'rxjs/add/operator/toPromise';
@@ -21,9 +22,13 @@ export class AuthService {
   //}
 
   login(emailId, pwd):Promise<User[]>{
-    let authUrl = 'http://localhost:8080/api/auth?email=' + emailId;
-    console.log("To invoke get request : " + authUrl);
-    return this.http.get(authUrl)
+    let authUrl = 'http://localhost:8080/api/auth';
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+
+    console.log("To invoke post request : " + authUrl);
+    return this.http.post(authUrl, {'email': emailId, 'password':pwd}, options)
                     .toPromise()
                     .then(this.extractData)
                     .catch(this.handleError);
