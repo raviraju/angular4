@@ -10,7 +10,6 @@ export class AuthService {
 
   // URL to web api
   private mockDataUrl = 'app/mockData';
-  private userDataUrl = 'http://localhost:8080/api/users';
 
   constructor (private http: Http) {}
 
@@ -22,7 +21,7 @@ export class AuthService {
   //}
 
   login(emailId, pwd):Promise<User[]>{
-    let authUrl = 'http://localhost:8080/api/auth';
+    let authUrl = 'http://localhost:4200/api/auth';
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 

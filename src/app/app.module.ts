@@ -12,6 +12,7 @@ import { SignupFormComponent }  from './signup-form/signup-form.component';
 
 import { AppRoutingModule }     from './routing/routing.module';
 import { DashboardComponent }   from './dashboard/dashboard.component';
+import { Ng2SmartTableModule }  from 'ng2-smart-table';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,9 @@ import { DashboardComponent }   from './dashboard/dashboard.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpModule/*,
+    HttpModule,/*,
     InMemoryWebApiModule.forRoot(MockData)*/
+    Ng2SmartTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

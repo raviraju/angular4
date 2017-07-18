@@ -1,6 +1,15 @@
 <nav>
   <a (click)="logout()">Logout</a>
 </nav>
+<div style="text-align:center">
+  <h3>Live Search Manual</h3>
+</div>
 <p>
   Welcome {{user}}
 </p>
+<ng2-smart-table [settings]="settings" [source]="source"
+      (deleteConfirm)="onDeleteConfirm($event)"
+      (editConfirm)="onSaveConfirm($event)"
+      (createConfirm)="onCreateConfirm($event)">
+</ng2-smart-table>
+

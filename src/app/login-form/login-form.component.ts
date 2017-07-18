@@ -18,7 +18,10 @@ export class LoginFormComponent {
     this.user = new User("", "", "");
   }
 
-  onSubmit() {     
+  onSubmit() {
+    // this.router.navigate(['/dashboard', 'Developer Mode']);
+    // return;
+
     console.log("Validating User : " + this.user.emailId);
     this.authService.login(this.user.emailId, this.user.password).then(
       userObj => {
